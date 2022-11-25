@@ -7,13 +7,16 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-struct t_image
-{
-    int image;
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
 
-}  s_image;
-
-
+void init_window(char* fractal_name);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 char* read_arg(char* av);
 void init_window(char* fractal_name);
 int	ft_strcmp(char *s1, char *s2);
