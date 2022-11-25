@@ -15,7 +15,8 @@ void init_window(char* fractal_name)
      int i = img.line_length;
     while (i)
     {
-	my_mlx_pixel_put(&img, i--, 5, 0x00FF0000);
+    int colour = create_trgb(i-1,i-5,i-7,i);
+	my_mlx_pixel_put(&img, i--, 5, colour);
        
     }
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
@@ -29,6 +30,11 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
+}
+
+int	create_trgb(int t, int r, int g, int b)
+{
+	return (t << 24 | r << 16 | g << 8 | b);
 }
 
 int main(int ac, char** av)

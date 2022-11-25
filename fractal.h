@@ -15,6 +15,7 @@ typedef struct	s_data {
 	int		endian;
 }				t_data;
 
+int	create_trgb(int t, int r, int g, int b);
 void init_window(char* fractal_name);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 char* read_arg(char* av);
