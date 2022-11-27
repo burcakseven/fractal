@@ -1,41 +1,74 @@
 #include "fractal.h"
 
-int	ft_strlen(char *str)
+// int	ft_strlen(char *str)
+// {
+// 	int	i;
+
+// 	i = -1;
+// 	while (str[++i])
+// 		;
+// 	return (i);
+// }
+
+// char	*ft_strdup(char *s1)
+// {
+// 	char	*str;
+// 	size_t	i;
+
+// 	if (!s1)
+// 		return (NULL);
+// 	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
+// 	if (!str)
+// 		return (NULL);
+// 	i = 0;
+// 	while (s1[i])
+// 	{
+// 		str[i] = s1[i];
+// 		i++;
+// 	}
+// 	str[i] = 0;
+// 	return (str);
+// }
+
+char	*choose_function(char *arg)
 {
-	int	i;
+	char	*name_list[3] = { "deneme","ikinciarg","uc"}; // değişecek
 
-	i = -1;
-	while (str[++i])
-		;
-	return (i);
-}
-
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-		i++;
-	return (s1[i] - s2[i]);
-}
-
-char	*ft_strdup(char *s1)
-{
-	char	*str;
-	size_t	i;
-
-	if (!s1)
-		return (NULL);
-	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (s1[i])
+	int i = 0;
+	while (i<3)
 	{
-		str[i] = s1[i];
+		if (ft_strcmp(arg,name_list[i])==0)
+		{
+			return (name_list[i]);
+		}
 		i++;
 	}
-	str[i] = 0;
-	return (str);
+	printf("arg couldn't find.");
+	exit(1);
+	
+	
+}
+
+int charcompare(char arg, char referance)
+{
+	if (arg == referance)
+	{
+		return(1);
+	}
+	else if('A'<= arg && arg <= 'Z' && arg+('a'-'A') == referance)
+	{
+		return(1);
+	}
+	return(0);
+
+}
+
+int	ft_strcmp(char *arg, char *referance)
+{
+	int	i;
+
+	i = 0;
+	while (charcompare(arg[i],referance[i]) && arg[i] != '\0' && referance[i] != '\0')
+		i++;
+	return (arg[i] - referance[i]);
 }
