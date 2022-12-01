@@ -1,7 +1,7 @@
 #include "fractal.h"
 
 
-void init_window(char* fractal_name)
+t_data *init_window(char* fractal_name)
 {
     void	*mlx;
 	t_data	img;
@@ -23,6 +23,19 @@ void init_window(char* fractal_name)
 	// my_mlx_pixel_put(&img, 1920/4, 1080/4, colour);
 	// mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
+		return(&img);
+
+}
+dye_window()
+{
+
+}
+
+void window_choises(t_fractal *name)
+{
+	t_data	*img;
+	img = init_window(name->name);
+	dye_window(name,img);
 
 }
 
@@ -31,6 +44,6 @@ int main(int ac, char** av)
 	t_fractal name;
     ac = 1;
 	name.name = choose_function(av[1]);
-    init_window(name.name);
+    window_choises(&name);
     return(0);
 }
