@@ -10,10 +10,8 @@ $(NAME): $(SRCS)
 	$(GCC) -I./mlx -framework OpenGL -framework AppKit $(SRCS) -L./mlx -lmlx -o $(NAME)
 	@reset
 	@echo "\n \
-	please try these"
-	@echo "\033[36mdeneme\033[0m"
-	@echo "\033[31mikinciarg\033[0m"
-	@echo "\033[92muc\033[0m"
+	please try these \n \
+	deneme,ikinciarg,uc \n"
 
 clean:
 	$(RM) $(NAME)
