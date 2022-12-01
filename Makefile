@@ -1,4 +1,4 @@
-SRCS			=	fractal.c libft_utils.c 
+SRCS			=	fractal.c libft_utils.c dye_screen.c
 
 RM				= rm -f
 GCC			= gcc -Wall -Wextra -Werror
