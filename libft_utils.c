@@ -32,10 +32,10 @@
 
 char	*choose_function(char *arg)
 {
-	char	*name_list[3] = { "deneme","ikinciarg","uc"}; // değişecek
+	char	*name_list[3] = { "mandelbrot","julia"}; // değişecek
 
 	int i = 0;
-	while (i<3)
+	while (i<2)
 	{
 		if (ft_strcmp(arg,name_list[i])==0)
 		{

@@ -11,7 +11,7 @@ $(NAME): $(SRCS)
 	@reset
 	@echo "\n \
 	please try these \n \
-	deneme,ikinciarg,uc \n"
+	mandelbrot,julia \n"
 
 clean:
 	$(RM) $(NAME)

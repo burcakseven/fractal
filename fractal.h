@@ -7,6 +7,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 
+# define WIDTH		1080
+# define HEIGHT		720
+
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
@@ -22,7 +25,8 @@ typedef struct s_fractal
 	void				*win;
 }				t_fractal;
 
-void dye_screen(t_data	*img,void	*mlx,void	*mlx_win);
+void navigate_on_screen(t_data	*img,void	*mlx,void	*mlx_win, char name);
+void dye_screen(t_data	*img,void	*mlx,void	*mlx_win,char	name);
 int charcompare(char arg, char referance);
 char *choose_function(char *arg);
 int	create_trgb(int t, int r, int g, int b);
