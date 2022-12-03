@@ -9,6 +9,10 @@
 
 # define WIDTH		1080
 # define HEIGHT		720
+# define x_orjin_coordinate WIDTH/2
+# define y_orjin_coordinate HEIGHT/2
+# define width_division WIDTH/8
+# define height_division HEIGHT/6
 
 typedef struct	s_data {
 	void	*img;
@@ -25,8 +29,9 @@ typedef struct s_fractal
 	void				*win;
 }				t_fractal;
 
+void convert_to_xy(t_data	*img,float i , float j);
 void navigate_on_screen(t_data	*img,void	*mlx,void	*mlx_win, char name);
-void dye_screen(t_data	*img,void	*mlx,void	*mlx_win,char	name);
+// void dye_screen(t_data	*img,void	*mlx,void	*mlx_win,char	name);
 int charcompare(char arg, char referance);
 char *choose_function(char *arg);
 int	create_trgb(int t, int r, int g, int b);

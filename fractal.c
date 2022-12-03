@@ -11,32 +11,14 @@
 
 // }
 
-void navigate_on_screen(t_data	*img,void	*mlx,void	*mlx_win, char name)
-{
-	int i = 0;
-	name = '0';
-	while (HEIGHT != i++)
-	{
-		int j = 0;
-		while (WIDTH != j++)
-		{
-			// detect_function(name);
-			my_mlx_pixel_put(img, i, j, 0x00FF0000);
-		}
-		
-	}
-			mlx_put_image_to_window(mlx, mlx_win, img->img, 0, 0);
-}
-
-
 void init_window(t_fractal *name)
 {
 	t_data	img;
 
 
 	name->mlx = mlx_init();
-    name->win = mlx_new_window(name->mlx, HEIGHT, WIDTH, name->name);
-	img.img = mlx_new_image(name->mlx, HEIGHT, WIDTH);
+    name->win = mlx_new_window(name->mlx, WIDTH, HEIGHT, name->name);
+	img.img = mlx_new_image(name->mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
 
