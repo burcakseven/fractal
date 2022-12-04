@@ -15,7 +15,7 @@
 // 	mlx_put_image_to_window(mlx, mlx_win, img->img, 0, 0);
 // }
 
-void convert_to_xy(t_data	*img,int i , int j)//hata var ???
+void convert_to_xy(t_data	*img,int i , int j)
 {
 	// img->temp_i = i;
 	// img->temp_j = j;
@@ -26,28 +26,28 @@ void convert_to_xy(t_data	*img,int i , int j)//hata var ???
 	float initial_y;
 	initial_x = (float)i/(float)w_division;
 	initial_y = (float)j/(float)h_division;
-	printf("x-y %d %d --",x_orjin_coordinate,y_orjin_coordinate);
-	printf("x-y %f %d --",initial_x,y_orjin_coordinate/height_division);
+	// printf("x-y %d %d --",i,j);
+	// printf("x-y %f %f --",initial_x,initial_y);
 	initial_x -= 4;
 	initial_y = 3 - initial_y;
-	printf("x-y %f %f\n",initial_x,initial_y);
+	// printf("x-y %f %f\n",initial_x,initial_y);
 	
 	// red	0x00FF0000
 // green	0x0000FF00
 // blue	0x000000FF
-	// colour = mandelbrot_formula(initial_x,initial_y);
-	// if (colour < 50)
-	// {
-	// my_mlx_pixel_put(img, i,j, 0x00FF0000);
-	// }
-	// else if(colour < 90)
-	// {
-	// 	my_mlx_pixel_put(img, i,j, 0x0000FF00);
-	// }
-	// else
-	// {
-	// 	my_mlx_pixel_put(img, i,j, 0x000000FF);
-	// }
+	colour = mandelbrot_formula(initial_x,initial_y);
+	if (colour < 50)
+	{
+	my_mlx_pixel_put(img, i,j, 0x00FF0000);
+	}
+	else if(colour < 90)
+	{
+		my_mlx_pixel_put(img, i,j, 0x0000FF00);
+	}
+	else
+	{
+		my_mlx_pixel_put(img, i,j, 0x000000FF);
+	}
 	
 	// printf("%f",initial_x);
 	// // int zn,zn1,i;
@@ -72,19 +72,17 @@ void navigate_on_screen(t_data	*img,void	*mlx,void	*mlx_win, char name)
 {
 	int i = 0;
 	name = '0';
-	// while (WIDTH != i++)
-	// {
+	while (WIDTH != i++)
+	{
 		int j = 0;
-	// 	while (HEIGHT != j++)
-	// 	{
-			i = x_orjin_coordinate;
-			j = y_orjin_coordinate;
+		while (HEIGHT != j++)
+		{
 			// detect_function(name);
 			// my_mlx_pixel_put(img, i,j, 0x00FF0000);
 			convert_to_xy(img, i, j);
-		// }
+		}
 		
-	// }
+	}
 			mlx_put_image_to_window(mlx, mlx_win, img->img, 0, 0);
 }
 

@@ -34,7 +34,7 @@ typedef struct s_fractal
 int mandelbrot_formula(float initial_x,float initial_y);
 void convert_to_xy(t_data	*img,int i , int j);
 void navigate_on_screen(t_data	*img,void	*mlx,void	*mlx_win, char name);
-// void dye_screen(t_data	*img,void	*mlx,void	*mlx_win,char	name);
+void dye_screen(t_data	*img,void	*mlx,void	*mlx_win,char	name);
 int charcompare(char arg, char referance);
 char *choose_function(char *arg);
 int	create_trgb(int t, int r, int g, int b);
