@@ -20,6 +20,8 @@ typedef struct	s_data {
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	// int		temp_i;
+	// int		temp_j;
 }				t_data;
 
 typedef struct s_fractal
@@ -29,7 +31,8 @@ typedef struct s_fractal
 	void				*win;
 }				t_fractal;
 
-void convert_to_xy(t_data	*img,float i , float j);
+int mandelbrot_formula(float initial_x,float initial_y);
+void convert_to_xy(t_data	*img,int i , int j);
 void navigate_on_screen(t_data	*img,void	*mlx,void	*mlx_win, char name);
 // void dye_screen(t_data	*img,void	*mlx,void	*mlx_win,char	name);
 int charcompare(char arg, char referance);
