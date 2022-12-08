@@ -1,16 +1,5 @@
 #include "fractal.h"
 
-// void detect_function(char name)
-// {
-// 	if(name == 'm')
-// 	{
-// 		dye_screen_m();
-// 	}
-// 	else
-// 		dye_screen_j();
-
-// }
-
 void init_window(t_fractal *name)
 {
 	t_data	img;
@@ -22,8 +11,7 @@ void init_window(t_fractal *name)
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
 
-	navigate_on_screen(&img, name->mlx,name->win, name->name[0]);
-	// dye_screen( &img, name->mlx,name->win, name->name[0]);
+	navigate_on_screen(&img, name);
 	mlx_loop(name->mlx);
 
 }

@@ -1,38 +1,8 @@
 #include "fractal.h"
 
-// int	ft_strlen(char *str)
-// {
-// 	int	i;
-
-// 	i = -1;
-// 	while (str[++i])
-// 		;
-// 	return (i);
-// }
-
-// char	*ft_strdup(char *s1)
-// {
-// 	char	*str;
-// 	size_t	i;
-
-// 	if (!s1)
-// 		return (NULL);
-// 	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
-// 	if (!str)
-// 		return (NULL);
-// 	i = 0;
-// 	while (s1[i])
-// 	{
-// 		str[i] = s1[i];
-// 		i++;
-// 	}
-// 	str[i] = 0;
-// 	return (str);
-// }
-
 char	*choose_function(char *arg)
 {
-	char	*name_list[3] = { "mandelbrot","julia"}; // değişecek
+	char	*name_list[3] = { "mandelbrot","julia"};
 
 	int i = 0;
 	while (i<2)
