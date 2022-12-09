@@ -42,7 +42,7 @@ typedef struct s_fractal
 
 }				t_fractal;
 
-int mouse_hook(int keycode,int x, int y, t_fractal fractal);
+int mouse_hook(int keycode,int x, int y, t_fractal *fractal);
 int	key_hook(int keycode, t_fractal *s_vars);
 int julia_formula(float initial_x,float initial_y);
 int mandelbrot_formula(float initial_x,float initial_y);

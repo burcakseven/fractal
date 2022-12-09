@@ -1,4 +1,11 @@
 #include "fractal.h"
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
 
 void convert_to_xy(t_data	*img,t_fractal *fractal,int i , int j)
 {
@@ -18,8 +25,9 @@ void convert_to_xy(t_data	*img,t_fractal *fractal,int i , int j)
 	colour = mandelbrot_formula(initial_x,initial_y);
 	else if (fractal->name[0] == 'j')
 	colour = julia_formula(initial_x,initial_y);
-	
-	my_mlx_pixel_put(img, i,j, colour);
+	//printf("%p - %d  - %d\n",img->addr,i,j);
+	if(j < 720 && i < 1080)
+		my_mlx_pixel_put(img, i,j, colour);
 }
 
 void navigate_on_screen(t_data	*img,t_fractal *fractal)
@@ -37,10 +45,3 @@ void navigate_on_screen(t_data	*img,t_fractal *fractal)
 		mlx_put_image_to_window(fractal->mlx, fractal->win, img->img, 0, 0);
 }
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-}

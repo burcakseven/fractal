@@ -18,7 +18,7 @@ void init_window(t_fractal *name)
 	name->dimension = img;
 	navigate_on_screen(&img, name);
 	mlx_mouse_hook(name->win, mouse_hook, name);
-	mlx_key_hook(name->win, &key_hook, name);
+	mlx_key_hook(name->win, key_hook, name);
 	mlx_loop(name->mlx);
 
 }
