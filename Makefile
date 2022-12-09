@@ -1,4 +1,4 @@
-SRCS			=	fractal.c libft_utils.c dye_screen.c functions_utils.c
+SRCS			=	fractal.c libft_utils.c dye_screen.c functions_utils.c hooks.c
 
 RM				= rm -f
 GCC			= gcc -Wall -Wextra -Werror
@@ -8,6 +8,7 @@ all:			$(SRCS) $(NAME)
 
 $(NAME): $(SRCS)
 	$(GCC) -I./mlx -framework OpenGL -framework AppKit $(SRCS) -L./mlx -lmlx -o $(NAME)
+	@reset
 	@echo "\n \
 	please try these \n \
 	mandelbrot,julia \n"

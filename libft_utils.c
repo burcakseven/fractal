@@ -13,7 +13,7 @@ char	*choose_function(char *arg)
 		}
 		i++;
 	}
-	printf("arg couldn't find.");
+	write(1,"arg couldn't find.",19);
 	exit(1);
 	
 	

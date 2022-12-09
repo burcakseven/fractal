@@ -3,26 +3,23 @@
 void convert_to_xy(t_data	*img,t_fractal *fractal,int i , int j)
 {
 	int colour = 0;
-	int w_division = width_division;
-	int h_division = height_division;
+	int w_division;
+	w_division = width_division;
+	int h_division;
+	h_division = height_division;
 	float initial_x;
 	float initial_y;
-	initial_x = (float)i/(float)w_division;
-	initial_y = (float)j/(float)h_division;
-	initial_x -= 4;
-	initial_y = 3 - initial_y;
+	initial_x = (float)i/(float)w_division*fractal->zoom_rate;
+	initial_y = (float)j/(float)h_division*fractal->zoom_rate;
+	initial_x -= 4+fractal->move_x;
+	initial_y = (3-fractal->move_y) - initial_y;
 
 	if (fractal->name[0] == 'm')
-	{
 	colour = mandelbrot_formula(initial_x,initial_y);
-	}
 	else if (fractal->name[0] == 'j')
-	{
 	colour = julia_formula(initial_x,initial_y);
-	}
 	
 	my_mlx_pixel_put(img, i,j, colour);
-	
 }
 
 void navigate_on_screen(t_data	*img,t_fractal *fractal)
@@ -33,7 +30,6 @@ void navigate_on_screen(t_data	*img,t_fractal *fractal)
 		int j = 0;
 		while (HEIGHT != j++)
 		{
-			// detect_function(name);
 			convert_to_xy(img,fractal,i, j);
 		}
 		

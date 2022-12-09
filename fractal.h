@@ -13,6 +13,14 @@
 # define y_orjin_coordinate HEIGHT/2
 # define width_division WIDTH/8
 # define height_division HEIGHT/6
+# define KEY_ESC 53
+# define KEY_W 13
+# define KEY_S 1
+# define KEY_A 0
+# define KEY_D 2
+# define KEY_ESC 53
+# define SCROLL_UP	4
+# define SCROLL_DOWN	5
 
 typedef struct	s_data {
 	void	*img;
@@ -27,12 +35,15 @@ typedef struct s_fractal
 	char	*name;
 	void				*mlx;
 	void				*win;
+	struct s_data	dimension;
 	float	zoom_rate;
 	float		move_x;
 	float		move_y;
 
 }				t_fractal;
 
+int mouse_hook(int keycode,int x, int y, t_fractal fractal);
+int	key_hook(int keycode, t_fractal *s_vars);
 int julia_formula(float initial_x,float initial_y);
 int mandelbrot_formula(float initial_x,float initial_y);
 void convert_to_xy(t_data	*img,t_fractal *fractal,int i , int j);
